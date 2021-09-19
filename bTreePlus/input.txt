@@ -1,0 +1,6 @@
+3
+Insert(123,steven-jimenez-30)
+Insert(234,viviana-vivi-32)
+Insert(345,samuel-jimenez-9)
+Insert(456,sofia-jimenez-2)
+Search(456)

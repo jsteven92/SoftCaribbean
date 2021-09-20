@@ -57,8 +57,9 @@ public class TableServiceImple implements TableService {
 
         FileWriter file;
         try {
-            file = new FileWriter(table + ".txt");
-            file.write(client.toStringTable());
+            file = new FileWriter(table + ".txt",true);
+            file.write("\r\n"+client.toStringTable());
+            file.flush();
             file.close();
         } catch (IOException e) {
             e.printStackTrace();

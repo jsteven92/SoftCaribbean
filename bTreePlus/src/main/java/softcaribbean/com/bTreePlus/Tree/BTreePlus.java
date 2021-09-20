@@ -28,7 +28,6 @@ public class BTreePlus {
 	public void initialize(int order) {
 		this.m = order;
 		this.root = null;
-		 System.out.println("B+ Tree Initialized. Degree is " + m);
 	}
 
 	/**
@@ -296,7 +295,9 @@ public class BTreePlus {
 			printNode(curr);
 			curr = curr.getNext();
 		}
-
+		System.out.println("\n" + "***************************************************************");
+		System.out.println("\n" + "********************* print end **********************");
+		System.out.println("\n" + "***************************************************************");
 	}
 
 	/**
@@ -371,8 +372,8 @@ public class BTreePlus {
 		while (curr.getChildren().size() != 0) {
 			curr = curr.getChildren().get(binarySearchWithinInternalNode(key, curr.getKeys()));
 		}
-		System.out.println(curr.getParent());
-		System.out.println(curr);
+		//System.out.println("Nodo Parent -> "+curr.getParent());
+		//System.out.println("Nodo hoja -> "+curr);
 		List<Key> keyList = curr.getKeys();
         //hacer una busqueda lineal en este nodo para la clave
         //poner los parametros 'searchValues' solo si es exitoso

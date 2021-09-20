@@ -16,4 +16,7 @@ id,first_name,last_name,direction,movil,age,date_birth
 673,diana,trejos,el silencio,3124568541,45,1995-06-29
 674,maria,trejos,el silencio,3124568541,45,1995-06-29
 976,andres,urbano,el recreo,3124568541,45,1995-06-29
-888,asas,asas,asas,3128355546,5,2020-01-01
+
+364,maria sofia,cifuentes,tres esquinas,3124568541,25,1995-06-29
+593,adres,uribe,centro,3124568541,25,1995-06-29
+398,daniel,uribe,centro,3124568541,25,1995-06-29

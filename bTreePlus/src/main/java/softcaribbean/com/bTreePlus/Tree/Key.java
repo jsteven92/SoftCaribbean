@@ -3,8 +3,10 @@ package softcaribbean.com.bTreePlus.Tree;
 import java.util.ArrayList;
 import java.util.List;
 
+import lombok.Data;
 import softcaribbean.com.bTreePlus.Entity.Client;
 
+@Data
 public class Key {
     /** clave. */
 	double key;
@@ -29,42 +31,6 @@ public class Key {
 	public Key(double key) {
 		this.key = key;
 		this.clients = new ArrayList<>();
-	}
-
-	/**
-	 * devolver clave
-	 *
-	 * @return la clave
-	 */
-	public double getKey() {
-		return key;
-	}
-
-	/**
-	 * insertar una clave
-	 *
-	 * @param key
-	 */
-	public void setKey(double key) {
-		this.key = key;
-	}
-
-	/**
-	 * devolver una clave
-	 *
-	 * @return el client
-	 */
-	public List<Client> getclients() {
-		return clients;
-	}
-
-	/**
-	 * insertar un cliente.
-	 *
-	 * @param clients
-	 */
-	public void setclients(List<Client> clients) {
-		this.clients = clients;
 	}
 
 	public String toString() {

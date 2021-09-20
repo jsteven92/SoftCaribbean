@@ -16,4 +16,3 @@ id,first_name,last_name,direction,movil,age,date_birth
 673,diana,trejos,el silencio,3124568541,45,1995-06-29
 674,maria,trejos,el silencio,3124568541,45,1995-06-29
 976,andres,urbano,el recreo,3124568541,45,1995-06-29
-888,asas,asas,asas,3128355546,5,2020-01-01

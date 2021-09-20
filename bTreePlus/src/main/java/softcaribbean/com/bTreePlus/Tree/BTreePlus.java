@@ -84,7 +84,7 @@ public class BTreePlus {
 		int indexOfKey = binarySearchWithinInternalNode(key, node.getKeys());
 		if (indexOfKey != 0 && node.getKeys().get(indexOfKey - 1).getKey() == key) {
 			// la llave existe, agregamos el valor a la lista de claves
-			node.getKeys().get(indexOfKey - 1).getclients().add(client);
+			node.getKeys().get(indexOfKey - 1).getClients().add(client);
 		} else {
 			// clave no existente. agregar clave-valor
 			Key newKey = new Key(key, client);
@@ -260,7 +260,7 @@ public class BTreePlus {
 	}
 
 	/**
-	 * Helper method - Prints the tree using a level order traversal
+	 * Metodo para la inpresión del arbol
 	 */
 	public void printTree() {
 		Queue<Node> queue = new LinkedList<Node>();
@@ -301,17 +301,15 @@ public class BTreePlus {
 	}
 
 	/**
-	 * Helper method Prints a node of the tree.
+	 * Metodo que imprime todo los valores de un nodo hoja
 	 *
-	 * @param curr
-	 *            the node to be printed
 	 */
 	private void printNode(Node curr) {
 		for (int i = 0; i < curr.getKeys().size(); i++) {
 			System.out.print(curr.getKeys().get(i).getKey() + ":(");
 			String values = "";
-			for (int j = 0; j < curr.getKeys().get(i).getclients().size(); j++) {
-				values = values + curr.getKeys().get(i).getclients().get(j) + ",";
+			for (int j = 0; j < curr.getKeys().get(i).getClients().size(); j++) {
+				values = values + curr.getKeys().get(i).getClients().get(j) + ",";
 			}
 			System.out.print(values.isEmpty() ? ");" : values.substring(0, values.length() - 1) + ");");
 		}
@@ -379,7 +377,7 @@ public class BTreePlus {
         //poner los parametros 'searchValues' solo si es exitoso
 		for (int i = 0; i < keyList.size(); i++) {
 			if (key == keyList.get(i).getKey()) {
-				searchValues = keyList.get(i).getclients();
+				searchValues = keyList.get(i).getClients();
 			}
 			if (key < keyList.get(i).getKey()) {
 				break;
@@ -387,42 +385,5 @@ public class BTreePlus {
 		}
 
 		return searchValues;
-	}
-
-	/**
-	 * Buscar todos los pares claves-valor  entre clave1 y clave2
-	 * @param key1
-	 * @param key2
-	 * @return lista de pares claves-valor entro dos claves
-	 */
-	
-	public List<Key> search(double key1, double key2) {
-		//System.out.println("Searching between keys " + key1 + ", " + key2);
-		List<Key> searchKeys = new ArrayList<>();
-		Node currNode = this.root;
-        //Recorra el nodo externo correspondiente que 'debería' 
-        //contener la clave de inicio (clave1)
-		while (currNode.getChildren().size() != 0) {
-			currNode = currNode.getChildren().get(binarySearchWithinInternalNode(key1, currNode.getKeys()));
-		}
-		
-        //comenzar desde el nodo actual y agregue claves cuyo
-        // valor se encuentre entre key1 y key2 con sus pares correspondientes
-        // Deténgase si se encuentra el final de la lista o si el valor encontrado en
-        // la lista es mayor que key2
-		
-		boolean endSearch = false;
-		while (null != currNode && !endSearch) {
-			for (int i = 0; i < currNode.getKeys().size(); i++) {
-				if (currNode.getKeys().get(i).getKey() >= key1 && currNode.getKeys().get(i).getKey() <= key2)
-					searchKeys.add(currNode.getKeys().get(i));
-				if (currNode.getKeys().get(i).getKey() > key2) {
-					endSearch = true;
-				}
-			}
-			currNode = currNode.getNext();
-		}
-
-		return searchKeys;
 	}
 }
